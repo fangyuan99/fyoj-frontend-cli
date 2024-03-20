@@ -7,9 +7,7 @@
       <a-layout-content class="content">
         <RouterView />
       </a-layout-content>
-      <a-layout-footer class="footer"
-        >编程导航知识星球 by 程序员鱼皮
-      </a-layout-footer>
+      <a-layout-footer class="footer">鱼 OJ </a-layout-footer>
     </a-layout>
   </div>
 </template>
@@ -23,13 +21,13 @@
 }
 
 #basicLayout .content {
-  background: linear-gradient(to right, #aaa, #fff);
+  //background: linear-gradient(to right, #aaa, #fff);
   margin-bottom: 16px;
   padding: 20px;
 }
 
 #basicLayout .footer {
-  background: rgb(128, 128, 128);
+  //background: rgb(128, 128, 128);
   margin-bottom: 16px;
   padding: 10px;
   left: 0;

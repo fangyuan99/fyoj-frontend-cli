@@ -1,6 +1,6 @@
 // import './assets/main.css'
 import "@arco-design/web-vue/dist/arco.css";
-
+import "@/access";
 import { createApp } from "vue";
 
 import App from "./App.vue";

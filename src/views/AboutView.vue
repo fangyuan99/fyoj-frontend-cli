@@ -1,5 +1,20 @@
 <template>
-  <div class="about">
-    <h1>This is an about page</h1>
+  <div>
+    <vue-markdown :source="markdown"></vue-markdown>
   </div>
 </template>
+
+<script>
+import VueMarkdown from "vue-markdown";
+
+export default {
+  data() {
+    return {
+      markdown: "# Hello, Vue Markdown!",
+    };
+  },
+  components: {
+    VueMarkdown,
+  },
+};
+</script>

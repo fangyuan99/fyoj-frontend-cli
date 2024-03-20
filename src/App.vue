@@ -1,10 +1,9 @@
 <script setup lang="ts">
-import { RouterLink, RouterView, useRouter } from "vue-router";
-import HelloWorld from "./components/HelloWorld.vue";
 import BasicLayout from "@/layouts/BasicLayout.vue";
-import { routes } from "@/router/routes";
-import { useStore } from "vuex";
 import { onMounted } from "vue";
+import { useRoute } from "vue-router";
+
+const route = useRoute();
 
 /**
  * 全局初始化函数，全局单次调用的代码，都可以放在这里
@@ -16,24 +15,17 @@ const doInit = () => {
 onMounted(() => {
   doInit();
 });
-
-const router = useRouter();
-const store = useStore();
-
-router.beforeEach((to, from, next) => {
-  if (to.meta?.access === "canAdmin") {
-    // alert(1);
-    if (store.state.user?.loginUser?.role !== "admin") {
-      next("/noAuth");
-      return;
-    }
-  }
-  next();
-});
 </script>
 
 <template>
-  <BasicLayout />
+  <div id="app">
+    <template v-if="route.path.startsWith('/user')">
+      <RouterView />
+    </template>
+    <template v-else>
+      <BasicLayout />
+    </template>
+  </div>
 </template>
 
 <style scoped></style>

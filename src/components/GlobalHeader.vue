@@ -31,12 +31,12 @@ const doMenuClick = (key: string) => {
   router.push({ path: key });
 };
 
-setTimeout(() => {
-  store.dispatch("user/getLoginUser", {
-    userName: "yupiAdmin",
-    userRole: ACCESS_ENUM.ADMIN,
-  });
-}, 3000);
+// setTimeout(() => {
+//   store.dispatch("user/getLoginUser", {
+//     userName: "yupiAdmin",
+//     userRole: ACCESS_ENUM.ADMIN,
+//   });
+// }, 3000);
 </script>
 
 <template>
@@ -46,7 +46,7 @@ setTimeout(() => {
         <a-menu-item
           key="0"
           :style="{ padding: 0, marginRight: '38px' }"
-          disabled
+          @click="doMenuClick('/')"
         >
           <div class="title-bar">
             <img src="../assets/oj-logo.svg" alt="" />
@@ -62,7 +62,15 @@ setTimeout(() => {
       </a-menu>
     </a-col>
     <a-col flex="100px">
-      <div>{{ store.state.user?.loginUser?.userName ?? "未登录" }}</div>
+      <div @click="router.push('user/login')">
+        {{
+          loginUser?.userName !== null
+            ? loginUser?.userName
+            : loginUser?.userName
+            ? "未登录"
+            : `user${loginUser?.id.toString().slice(0, 8)}`
+        }}
+      </div>
     </a-col>
   </a-row>
 </template>

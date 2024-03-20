@@ -1,35 +1,46 @@
 <template>
-  <div id="basicLayout">
+  <div id="userLayout">
     <a-layout style="min-height: 100vh">
       <a-layout-header class="header">
-        <GlobalHeader />
+        <a-space>
+          <img src="@/assets/oj-logo.svg" class="logo" />
+          <div>鱼 OJ</div>
+        </a-space>
       </a-layout-header>
       <a-layout-content class="content">
         <RouterView />
       </a-layout-content>
-      <a-layout-footer class="footer"
-        >编程导航知识星球 by 程序员鱼皮
-      </a-layout-footer>
+      <a-layout-footer class="footer">鱼 OJ</a-layout-footer>
     </a-layout>
   </div>
 </template>
+<style>
+.arco-form-item-content-flex {
+  justify-content: space-between;
+}
+</style>
 <style scoped>
-#basicLayout {
+#userLayout {
+  text-align: center;
+  background: url("https://gw.alipayobjects.com/zos/rmsportal/FfdJeJRQWjEeGTpqgBKj.png")
+    0% 0% / 100% 100%;
 }
 
-#basicLayout .header {
-  margin-bottom: 16px;
-  box-shadow: #eee 1px 1px 5px;
+#userLayout .logo {
+  width: 64px;
+  height: 64px;
 }
 
-#basicLayout .content {
-  background: linear-gradient(to right, #aaa, #fff);
+#userLayout .header {
+  margin-top: 16px;
+}
+
+#userLayout .content {
   margin-bottom: 16px;
   padding: 20px;
 }
 
-#basicLayout .footer {
-  background: rgb(128, 128, 128);
+#userLayout .footer {
   margin-bottom: 16px;
   padding: 10px;
   left: 0;
@@ -38,6 +49,4 @@
   position: sticky;
 }
 </style>
-<script setup lang="ts">
-import GlobalHeader from "@/components/GlobalHeader.vue";
-</script>
+<script setup lang="ts"></script>
